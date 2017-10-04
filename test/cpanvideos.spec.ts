@@ -82,9 +82,9 @@ describe("cspanvideos", () => {
     it("Should work with a nonsense name", (done) => {
       cspanvids.fetchVideoData("aragsseafe")
         .then((data) => {
-          expect(typeof data).to.be.an(undefined);
+          expect(data instanceof Error).to.be.true;
         })
       .then(() => done(), done);
-    })
+    });
   })
 });

@@ -10,7 +10,7 @@ import { formatPersonName, formatEmbedURL } from './helpers';
 class CSPANVideos {
   CSPAN_BASE_URL: string = "https://www.c-span.org/person/?";
   CSPAN_BAD_URL: string = "https://www.c-span.org/search/?searchtype=People&query=";
-
+  
 
   fetchVideoData(personName: string) {
     const name = personName;

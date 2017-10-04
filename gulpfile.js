@@ -39,7 +39,7 @@ gulp.task("tests", ["compile-code"], () => {
   })
 })
 
-gulp.task("watch:code",["compile-code"], () => {
+gulp.task("watch:code",["compile-code", "tests"], () => {
   gulp.watch([
     CONFIG.CODE_PATH_SRC, 
     CONFIG.CODE_PATH_TEST_SRC
