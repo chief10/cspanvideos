@@ -1,0 +1,47 @@
+{
+  "name": "cspanvideos",
+  "version": "1.0.0",
+  "description": "A small api for gathering video information from CSPAN for a particular legislator.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chief10/CSPANVideos.git"
+  },
+  "keywords": [
+    "CSPAN",
+    "Politicians",
+    "legislature",
+    "scraper"
+  ],
+  "author": "chief10",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chief10/CSPANVideos/issues"
+  },
+  "homepage": "https://github.com/chief10/CSPANVideos#readme",
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.2",
+    "mocha": "^4.0.0",
+    "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "@types/chalk": "^0.4.31",
+    "@types/lodash": "^4.14.76",
+    "@types/request": "^2.0.3",
+    "chalk": "^2.1.0",
+    "cheerio": "^1.0.0-rc.2",
+    "g": "^2.0.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "lodash": "^4.17.4",
+    "request": "^2.83.0",
+    "valid-url": "^1.0.9"
+  }
+}
