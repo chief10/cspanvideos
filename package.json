@@ -1,6 +1,6 @@
 {
   "name": "cspanvideos",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small api for gathering video information from CSPAN for a particular legislator.",
   "main": "dist/src/index.js",
   "scripts": {
