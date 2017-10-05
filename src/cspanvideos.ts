@@ -10,7 +10,7 @@ import { formatPersonName, formatEmbedURL } from './helpers';
 class CSPANVideos {
   CSPAN_BASE_URL: string = "https://www.c-span.org/person/?";
   CSPAN_BAD_URL: string = "https://www.c-span.org/search/?searchtype=People&query=";
-  
+
 
   fetchVideoData(personName: string) {
     const name = personName;
@@ -160,8 +160,8 @@ function handleError(err: Error) {
   console.error("There was an error: ", err);
 }
 
-const cspanvids = new CSPANVideos();
-export { cspanvids }
+const cspanvideos = new CSPANVideos();
+export { cspanvideos };
 
 interface ISingleVideo {
   thumbnail?: string,

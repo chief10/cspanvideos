@@ -6,7 +6,7 @@ import * as mocha from 'mocha';
 import * as request from 'request';
 import * as chalk from 'chalk';
 
-import { cspanvids } from '../src';
+import { cspanvideos } from '../src';
 import { dummyData } from './dummydata';
 
 const expect = chai.expect;
@@ -15,18 +15,18 @@ const expect = chai.expect;
 describe("cspanvideos", () => {
 
   it("Should have the proper url.", () => {
-    expect(cspanvids.CSPAN_BASE_URL).to.equal("https://www.c-span.org/person/?");
+    expect(cspanvideos.CSPAN_BASE_URL).to.equal("https://www.c-span.org/person/?");
   });
 
 
   it("Should have the _makeRequest method available", () => {
-    expect(cspanvids).to.have.property("_makeRequest")
+    expect(cspanvideos).to.have.property("_makeRequest")
   });
 
 
   describe("_parseRequestForData", () => {
     const mockDom = dummyData().mockCSPANDom;
-    const rp = cspanvids._parseRequestForData(mockDom);
+    const rp = cspanvideos._parseRequestForData(mockDom);
 
     it("Should detect proper amount of li elements", () => {
       expect(rp.length).to.be.equal(6);
@@ -41,10 +41,10 @@ describe("cspanvideos", () => {
 
   describe("_isBadURL", () => {
     it("Should get the proper URL when a bad one is provided", () => {
-      request(cspanvids.CSPAN_BAD_URL + "Ted Cruz", (err: Error, response: request.RequestResponse, body: string) => {
-        const isBadURL = cspanvids._isBadURL(body);
+      request(cspanvideos.CSPAN_BAD_URL + "Ted Cruz", (err: Error, response: request.RequestResponse, body: string) => {
+        const isBadURL = cspanvideos._isBadURL(body);
 
-        expect(isBadURL).to.be.true;
+        expect(isBadURL).not.to.be.false;
       })
     })
   });
@@ -52,7 +52,7 @@ describe("cspanvideos", () => {
   describe("fetchVideoData", () => {
 
     it ("Should work as expected for a normal name format", (done) => {
-      cspanvids.fetchVideoData("Marco Rubio")
+      cspanvideos.fetchVideoData("Marco Rubio")
       .then((data) => {
         expect(data.length).to.be.above(3);
         expect(data[0].embed_url).to.be.a("string");
@@ -61,7 +61,7 @@ describe("cspanvideos", () => {
     });
     
     it("Should work with a weird name format", (done) => {
-      cspanvids.fetchVideoData("marcorubio")
+      cspanvideos.fetchVideoData("marcorubio")
       .then((data) => {
         expect(data.length).to.be.above(3)
         expect(data[0].embed_url).to.be.a("string");
@@ -73,18 +73,19 @@ describe("cspanvideos", () => {
      * would be "rcruz". Need to handle that.
      */
     it("Should work with a name that diffs from url", (done) => {
-      cspanvids.fetchVideoData("Ted Cruz")
+      cspanvideos.fetchVideoData("Ted Cruz")
         .then((data) => {
           expect(data.length).to.be.above(3);
         }).then(() => done(), done)
     });
+  
 
     it("Should work with a nonsense name", (done) => {
-      cspanvids.fetchVideoData("aragsseafe")
+      cspanvideos.fetchVideoData("aragsseafe")
         .then((data) => {
           expect(data instanceof Error).to.be.true;
         })
       .then(() => done(), done);
-    });
+    })
   })
 });

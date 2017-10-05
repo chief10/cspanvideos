@@ -1,1 +1,1 @@
-export * from './cspanvideos';
+export { cspanvideos } from './cspanvideos';

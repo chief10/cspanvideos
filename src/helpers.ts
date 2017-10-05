@@ -4,10 +4,6 @@ export function formatPersonName(name: string, withSpace?: boolean): string|Erro
   if ( !name || typeof name !== "string" ) {
     return new Error("Must have a name present or it must be a string!");
   }
-  // debugger;
-  if ( name && !/\s/.test(name)) {
-    return name;
-  }
 
   split = name.trim().split(" ");
 
